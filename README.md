@@ -1,5 +1,7 @@
 # R3F Building Demo
 
+![CI](https://github.com/preston-bernstein/r3f-demo/actions/workflows/ci.yml/badge.svg)
+
   A minimal React Three Fiber scene built to explore 3D web rendering in the
   context of BIM and architectural design tooling.
 

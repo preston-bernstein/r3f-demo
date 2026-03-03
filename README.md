@@ -1,6 +1,7 @@
 # R3F Building Demo
 
 ![CI](https://github.com/preston-bernstein/r3f-demo/actions/workflows/ci.yml/badge.svg)
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://r3f-demo-amber.vercel.app)
 
   A minimal React Three Fiber scene built to explore 3D web rendering in the
   context of BIM and architectural design tooling.

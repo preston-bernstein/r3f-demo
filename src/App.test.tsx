@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react'
 import React from 'react'
 
 import App from './App'
+import { MockCanvas, MockOrbitControls } from './testing/threeTestUtils'
 
 vi.mock('@react-three/fiber', async () => {
   const actual = await vi.importActual<typeof import('@react-three/fiber')>('@react-three/fiber')
@@ -10,7 +11,7 @@ vi.mock('@react-three/fiber', async () => {
   return {
     ...actual,
     Canvas: ({ children }: { children: React.ReactNode }) => (
-      <div data-testid="canvas-root">{children}</div>
+      <MockCanvas testId="canvas-root">{children}</MockCanvas>
     ),
   }
 })
@@ -20,7 +21,9 @@ vi.mock('@react-three/drei', async () => {
 
   return {
     ...actual,
-    OrbitControls: ({ children }: { children?: React.ReactNode }) => <>{children}</>,
+    OrbitControls: ({ children }: { children?: React.ReactNode }) => (
+      <MockOrbitControls>{children}</MockOrbitControls>
+    ),
   }
 })
 

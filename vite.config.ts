@@ -12,7 +12,8 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html'],
-      include: ['src/App.tsx'],
+      all: true,
+      include: ['src/**/*.{ts,tsx}'],
     },
     exclude: [...configDefaults.exclude, 'node_modules/**'],
   },

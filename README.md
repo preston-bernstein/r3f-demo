@@ -2,6 +2,7 @@
 
 ![CI](https://github.com/preston-bernstein/r3f-demo/actions/workflows/ci.yml/badge.svg)
 [![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://r3f-demo-amber.vercel.app)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
   A minimal React Three Fiber scene built to explore 3D web rendering in the
   context of BIM and architectural design tooling.
@@ -30,3 +31,7 @@
   Exploring how React Three Fiber applies to BIM-adjacent applications —
   specifically how 3D geometry and interactive web rendering can power design
   tooling like the work being done at Cove.
+
+  ## License
+
+  MIT — see [LICENSE](LICENSE).

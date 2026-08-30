@@ -2,37 +2,26 @@ name: CI
 
 on:
   push:
-    branches:
-      - main
-      - master
-      - '**/feature/**'
+    branches: [main]
   pull_request:
-    branches:
-      - '**'
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+permissions:
+  contents: read
 
 jobs:
-  build-test-lint:
-    runs-on: ubuntu-latest
+  ci:
+    uses: preston-bernstein/ci-workflows/.github/workflows/node.yml@v1
+    with:
+      node-versions: '["20"]'
+      lint: npm run lint
+      test: npm test
+      build: npm run build
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Run unit tests
-        run: npm test
-
-      - name: Build
-        run: npm run build
-
+  workflows:
+    uses: preston-bernstein/ci-workflows/.github/workflows/actions-lint.yml@v1
